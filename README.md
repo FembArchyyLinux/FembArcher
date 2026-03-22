@@ -36,7 +36,7 @@ If you wanna learn what the code does you can read fembarch.sh's source code.
 To run the script you first need to download fembarcher from this Git repo.
 Do in your terminal
 ```bash
-git clone https:/FembArchyyLinux/FembArcher
+git clone https:/FembArchyyLinux/FembArcher.git
 cd FembArcher
 chmod +x fembarcher.sh
 ./fembarcher.sh
