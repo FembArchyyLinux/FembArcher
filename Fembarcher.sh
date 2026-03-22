@@ -29,11 +29,11 @@ sleep 1
 # Functions
 
 install_lolly() {
-    sudo pacman -S lollypop
+    sudo pacman -S --needed --noconfirm lollypop
 }
 
 install_shortwave() {
-    sudo pacman -S shortwave
+    sudo pacman -S --needed --noconfirm shortwave
 }
 
 install_chrome() {
@@ -51,7 +51,7 @@ configure_cutefetch() {
     sleep 1
     echo "Configured file... Installing uwufetch"
     sleep 1
-    sudo pacman -S uwufetch
+    sudo pacman -S --needed --noconfirm uwufetch
 }
 
 download_wallpapers() {
@@ -158,3 +158,4 @@ fi
 
 echo -e "\e[31mDone! Logout and Login and see the results.\e[0m"
 exit 0
+
