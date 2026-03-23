@@ -40,7 +40,7 @@ install_chrome() {
    yay -S google-chrome
 }
 
-configure_cutefetch() {
+install_configure_cutefetch() {
     touch cutefetch
     echo "#!/usr/bin/bash" >> cutefetch
     echo "" >> cutefetch
@@ -52,11 +52,6 @@ configure_cutefetch() {
     echo "Configured file... Installing uwufetch"
     sleep 1
     sudo pacman -S --needed --noconfirm uwufetch
-}
-
-download_wallpapers() {
-    wget https://vk.com/raidyhd?z=photo-144335788_457250123%2F305be7666d4eedc5c0
-    wget https://vk.com/raidyhd?z=photo-144335788_457250121%2Fwall-144335788_47053
 }
 
 add_pywal() {
@@ -82,6 +77,14 @@ install_flatpaks() {
 
 }
 
+configure_fembpkg() { 
+    git clone https://github.com/FembArchyyLinux/Fembpkg.git
+    chmod ~/Fembpkg/fembpkg.sh
+    mv ~/Fembpkg/fembpkg.sh ~/Fembpkg/fembpkg
+    sudo mv ~/Fembpkg/fembpkg /usr/bin/fembpkg
+
+}
+
 # Execute functions and shit :D
 
 read -p "Have you installed the pre-required packages that were told to install on the official FembArcher git repo? (y/n): " gi
@@ -90,6 +93,8 @@ if [[ "$gi" == "y" ]]; then
     echo ""
 elif [[ "$gi" == "n" ]]; then
     echo "Please install the pre-required packages from github."
+else 
+    echo "Huh??"
 fi
 
 echo "install lollypop? (y/n)"
@@ -97,17 +102,24 @@ read -p ">.< | " choice
 
 if [[ "$choice" == "y" ]]; then
     install_lolly
+    echo "Installed lollypop :)"
 elif [[ "$choice" == "n" ]]; then
     echo "Canceled install for lollypop."
+else 
+    echo "Huh??"
 fi
+
 
 echo "install shortwave? (y/n)"    
 read -p ">.< | " choice1
 
 if [[ "$choice1" == "y" ]]; then
     install_shortwave
+    echo "Installed shortwave :)"
 elif [[ "$choice1" == "n" ]]; then
     echo "Canceled install for shortwave."
+else 
+    echo "Huh??"
 fi
 
 echo "install chrome? (y/n)"
@@ -115,27 +127,23 @@ read -p ">.< | " choice2
 
 if [[ "$choice2" == "y" ]]; then
     install_chrome
+    echoo "Installed Chrome :)"
 elif [[ "$choice2" == "n" ]]; then
     echo "Canceled install for chrome."
+else 
+    echo "Huh??"
 fi
 
 echo "configure cutefetch? (y/n)"
 read -p ">.< | " choice3
 
 if [[ "$choice3" == "y" ]]; then
-    configure_cutefetch 
+    install_configure_cutefetch 
+    echo "Configured cutefetch :)"
 elif [[ "$choice3" == "n" ]]; then
     echo "Canceled configuration for cutefetch."
-fi
-
-
-echo "Download our wallpapers? (y/n)"
-read -p ">.< | " choice4
-
-if [[ "$choice4" == "y" ]]; then
-    download_wallpapers
-elif [[ "$choice4" == "n" ]]; then
-    echo "Canceled downloads."
+else 
+    echo "Huh??"
 fi
 
 echo "add pywal hook to ~/.bashrc? (y/n)"
@@ -145,6 +153,8 @@ if [[ "$choice5" == "y" ]]; then
     add_pywal
 elif [[ "$choice5" == "n" ]]; then
     echo "Canceled."
+else 
+    echo "Huh??"
 fi
 
 echo "Add flatpaks? (y/n)"
@@ -152,10 +162,25 @@ read -p ">.< | " choice6
 
 if [[ "$choice6" == "y" ]]; then
     install_flatpaks
+    echo "Installed flatpaks :)"
 elif [[ "$choice6" == "n" ]]; then
     echo "Canceled installing flatpaks."
+else 
+    echo "Huh??"
 fi
+
+echo "Configure Fembpkg? (y/n):"
+read -p ">.< | " choice7
+
+if [[ "$choice7" == "y" ]]; then
+    configure_fembpkg
+    echo "Configured fembpkg and added it to /usr/bin/ :)"
+elif [[ "$choice7" == "n" ]]; then
+    echo "Canceled Configuring Fembpkg."
+else 
+    echo "Huh??"
+fi
+
 
 echo -e "\e[31mDone! Logout and Login and see the results.\e[0m"
 exit 0
-
