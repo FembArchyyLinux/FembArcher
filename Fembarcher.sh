@@ -4,6 +4,11 @@ set -e
 
 echo -e "\e[31mWelcome to FembArcher customization tool!\e[0m"
 
+if [ -n "$PREFIX" ]; then
+    echo "Error: Termux is not supported."
+    exit 1
+fi
+
 check_gnome_version() {
   GNOME_VERSION=`gnome-session --version`
   GNOME_VERSION_NUMBER=${GNOME_VERSION##* }
