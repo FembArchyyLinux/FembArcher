@@ -1,6 +1,9 @@
 # FembArcher
 FembArcher is a Shell script to install FembArch Linux customizations on many Linux Distributions
 
+## Warning for non-arch users.
+This tool uses mainly the pacman package manager, you might need to change the part where it installs things like lollypop, shortwave, chrome and etc. (yay also doesnt exist in non-arch distro's so uh non-arch users are kinda cooked)
+
 # Install pre-requirements
 For FembArcher to work properly you need:
     flatpak
